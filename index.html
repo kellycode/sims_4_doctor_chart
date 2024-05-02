@@ -22,7 +22,7 @@
                 Sims 4 Doctor's Diagnosis Chart
             </div>
             <div class="container">
-                <div id="doc_symptom_list" class="flex_grow_div">
+                <div id="doc_symptom_list" class="flex_grow_one">
                     <h4>Doc Symptoms</h4>
                     <div>
                         <input type="checkbox" name="symptoms" class="symptom docs" value="spot_rash" />
@@ -73,10 +73,10 @@
                     </div>
                 </div>
 
-                <div id="vet_symptom_list" class="flex_grow_div">
+                <div id="vet_symptom_list" class="flex_grow_one">
                     <h4>Vet Symptoms</h4>
                     <div class="container">
-                        <div class="flex_grow_div">
+                        <div class="flex_grow_one">
                             <div>
                                 <input type="checkbox" name="symptoms" class="symptom vets" value="fleas" />
                                 Fleas
@@ -137,7 +137,7 @@
                             </div>
                         </div>
 
-                        <div class="flex_grow_div">
+                        <div class="flex_grow_one">
                             <!-- Symptoms -->
                             <div>
                                 <input type="checkbox" name="symptoms" class="symptom vets" value="dry_eyes" />
@@ -195,11 +195,11 @@
             </div>
 
             <div class="container">
-                <div id="diagnosis_list" class="flex_grow_div">
+                <div id="diagnosis_list" class="flex_grow_one">
                     <h4>Possible Diagnosis</h4>
-                    <div>No diagnosis available</div>
+                    <div id="diagnoses_info">No diagnosis available</div>
                 </div>
-                <div id="buttons_cont" class="flex_grow_div">
+                <div id="buttons_cont" class="flex_grow_one">
                     <button type="button" title="Reset" onclick="symptomsClearAll();">New Patient (Reset)</button>
                 </div>
             </div>

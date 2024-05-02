@@ -6,7 +6,8 @@
  * Diagnosis based on
  * 1. http://www.carls-sims-4-guide.com/careers/gettowork/doctor/
  * 2. http://sims-online.com/sims-4-doctor-career-guide-active/
- * 3. my own testing
+ * 3. https://www.carls-sims-4-guide.com/careers/gettowork/doctor/
+ * 4. my own testing
  *
  * I didn't find the thought bubbles to be very consistant or reliable
  */
@@ -18,35 +19,43 @@ let docAilments = {
     starry_eyes: {
         symptoms: ["dizziness", "swirl_rash", "swatting"],
         name: "Starry Eyes",
+        cure: "N/A"
     },
     bloaty_head: {
         symptoms: ["head_steam", "headache", "spot_rash"],
         name: "Bloaty Head",
+        cure: "N/A"
     },
     gas_and_giggles: {
         symptoms: ["stomach_ache", "giggling", "stripes_rash"],
         name: "Gas-and-Giggles",
+        cure: "N/A"
     },
     llama_flu: {
         symptoms: ["spot_rash", "sneeze", "cough", "fever", "giggling"],
         name: "Llama Flu",
+        cure: "N/A"
     },
     sweaty_shivers: {
         symptoms: ["spot_rash", "itchiness", "fever"],
         name: "Sweaty Shivers",
+        cure: "N/A"
     },
     itchy_plumbob: {
         symptoms: ["itchiness", "giggling", "stripes_rash", "spot_rash"],
         name: "Itchy Plumbob",
+        cure: "N/A"
     },
     burnin_belly: {
         symptoms: ["stomach_ache", "fever"],
         name: "Burnin' Belly",
+        cure: "N/A"
     },
     // pass_gas symptom added (cheek lift and waves hand in front of face)
     triple_threat: {
         symptoms: ["dizziness", "sneeze", "itchiness", "cough", "stripes_rash", "spot_rash", "swirl_rash"],
         name: "Triple Threat",
+        cure: "N/A"
     },
 };
 
@@ -112,7 +121,7 @@ vetAilments = {
         name: "Winterfest Fever",
         cure: ["Fixitol Treat at Exam Table", "Unblock Chute Surgery"],
     },
-    // TODO: These don't both resolve with same symptoms
+    // Same symptoms but dog or cat cure
     derpy_doggy: {
         diff: "Easy",
         symptoms: ["extreme_lethargy", "sluggish_heartbeat", "inflamed_cuteness"],
@@ -225,7 +234,7 @@ vetAilments = {
         diff: "Hard",
         symptoms: ["barfing", "fleas", "mouth_moths", "stinky_fur", "uncontrollable_drooling"],
         name: "Super Repugnitis",
-        cure: ["Tum Tum Readjustment Surgery"],
+        cure: ["Tum Tum Readjustment Surgery"]
     },
     super_swamp_mouth: {
         diff: "Hard",
@@ -237,13 +246,13 @@ vetAilments = {
             "unstable_temperature",
         ],
         name: "Super Swamp Mouth",
-        cure: ["Tum Tum Readjustment Surgery"],
+        cure: ["Tum Tum Readjustment Surgery"]
     },
     throbpaw_disease: {
         diff: "Hard",
         symptoms: ["hot_feet", "dry_eyes", "high_temperature", "sour_breath", "ear_infection"],
         name: "Throbpaw Disease",
-        cure: ["Feelgood Serum at Exam Table", "Refill Nose Surgery"],
+        cure: ["Feelgood Serum at Exam Table", "Refill Nose Surgery"]
     },
 };
 
@@ -264,10 +273,11 @@ let symptomsClearAll = function () {
     });
     // remove the dimmer (fake disabled)
     enableBothSides();
-    // signal a change to the first one so the list gets updated
-    //$("input[name='symptoms']").eq(0).change();
+    // clear the "Possible Diagnoses" list
+    $("#diagnoses_info").html("No diagnosis available");
 };
 
+// for reset
 let enableBothSides = function() {
     $("#vet_symptom_list").removeClass("dimmer");
     $("#doc_symptom_list").removeClass("dimmer");
@@ -287,13 +297,14 @@ let disableOtherSide = function (clickedElement) {
  * Attach a change event listener to the check boxes so that the diagnosis list will update when one is clicked
  */
 $(".symptom").change(function (clickedElement) {
-    var symptoms = [];
-    var possibles = [];
+    let symptoms = [];
+    let possibles = [];
 
+    // check whether we have any symptoms selected atm
     if($("input[name='symptoms']:checked").length === 0) {
-        // no checks so clear everything
+        // no checks so reset as new
         enableBothSides();
-        // clear the list
+        // clear the list but it's reset on entry so not needed
         symptoms = [];
     } else {
         enableBothSides();
@@ -302,6 +313,7 @@ $(".symptom").change(function (clickedElement) {
         }
     }
 
+    // make a fresh list of symptoms
     // step through all of the checkboxes and make an array list of
     // the ones that are checked so we have a list of current symptoms
     $.each($("input[name='symptoms']:checked"), function () {
@@ -311,14 +323,14 @@ $(".symptom").change(function (clickedElement) {
     // key to the diagnosis algorithm:
     // essentially, all ailments are possible all the time and we eliminate ailments by checking
     // that all of the current symptoms are present in an ailment's symptom list
-    // example: patient coughs - cough isn't a Itchy Plumbob symptom - we know Itchy Plumbob is not a possibility
+    // example: patient coughs - cough isn't an Itchy Plumbob symptom - we know Itchy Plumbob is not a possibility
 
     // this allIn returns a boolean after checking if all of our current
     // symptoms are present in a possible ailment and returns true only if they are
-    var allIn = function (subset, master) {
-        var allAreIn = true;
-        for (var i = 0; i < subset.length; i++) {
-            var itemIndex = master.indexOf(subset[i]);
+    let allIn = function (subset, master) {
+        let allAreIn = true;
+        for (let i = 0; i < subset.length; i++) {
+            let itemIndex = master.indexOf(subset[i]);
             if (itemIndex === -1) {
                 return false;
             }
@@ -330,15 +342,19 @@ $(".symptom").change(function (clickedElement) {
     if (symptoms.length > 0) {
         for (var ailment in allAilments) {
             if (allIn(symptoms, allAilments[ailment].symptoms)) {
-                possibles.push(allAilments[ailment].name);
+                console.log(allAilments[ailment].cure.toString());
+                let ailmentInfo = "<span class='possibleAilmentName'>" + allAilments[ailment].name + "</span><br>"
+                + "<span class='possibleSymptomsList'>Related Symptoms: " + allAilments[ailment].symptoms.join(', ') + "</span>"
+                + "<br>" + "<span class='possibleCureList'>Related Cure: " +  allAilments[ailment].cure.join(', ') + "</span><br>"
+                possibles.push(ailmentInfo);
             }
         }
     }
 
     // if we got any possible ailments, display them, otherwise, let the user know we don't have any results
     if (possibles.length > 0) {
-        $("#diagnosis_list div").html(possibles.join("<br>"));
+        $("#diagnoses_info").html(possibles.join("<br>"));
     } else {
-        $("#diagnosis_list div").html("No diagnosis available");
+        $("#diagnoses_info").html("No diagnosis available");
     }
 });
