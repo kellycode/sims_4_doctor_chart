@@ -70,12 +70,6 @@ vetAilments = {
         name: "Blazing Tootsies",
         cure: ["Parasite Killer Spray from Exam Table", "Tum Tum Readjustment Surgery"],
     },
-    derpy_doggy: {
-        diff: "Easy",
-        symptoms: ["extreme_lethargy", "sluggish_heartbeat", "inflamed_cuteness"],
-        name: "Derpy Doggy",
-        cure: ["Antifungal Spray at Exam Table", "Refill Nose Surgery"],
-    },
     fleas: {
         diff: "Easy",
         symptoms: ["fleas"],
@@ -118,9 +112,16 @@ vetAilments = {
         name: "Winterfest Fever",
         cure: ["Fixitol Treat at Exam Table", "Unblock Chute Surgery"],
     },
+    // TODO: These don't both resolve with same symptoms
+    derpy_doggy: {
+        diff: "Easy",
+        symptoms: ["extreme_lethargy", "sluggish_heartbeat", "inflamed_cuteness"],
+        name: "Derpy Doggy",
+        cure: ["Antifungal Spray at Exam Table", "Refill Nose Surgery"],
+    },
     woozy_kittyitis: {
         diff: "Easy",
-        symptoms: ["extreme _lethargy", "sluggish_heartbeat", "inflamed_cuteness"],
+        symptoms: ["extreme_lethargy", "sluggish_heartbeat", "inflamed_cuteness"],
         name: "Woozy Kittyitis",
         cure: ["Eudemonia Concentrate at Exam Table", "Extract Cuteness Surgery"],
     },
