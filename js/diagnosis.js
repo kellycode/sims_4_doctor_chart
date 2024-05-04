@@ -69,7 +69,7 @@ vetAilments = {
     },
     healthy: {
         diff: "Easy",
-        symptoms: [],
+        symptoms: ["clear_nose", "healthy_skin", "normal_temperature", "standard_smelly_breath", "clear_eyes"],
         name: "Healthy",
         cure: ["Preventative Shot"],
     },
@@ -77,7 +77,7 @@ vetAilments = {
         diff: "Easy",
         symptoms: ["hot_feet", "dry_eyes", "high_temperature"],
         name: "Blazing Tootsies",
-        cure: ["Parasite Killer Spray from Exam Table", "Tum Tum Readjustment Surgery"],
+        cure: ["Parasite Killer Spray from Exam Table", "Tum Tum Tickletangle Readjustment Surgery"],
     },
     fleas: {
         diff: "Easy",
@@ -113,7 +113,7 @@ vetAilments = {
         diff: "Easy",
         symptoms: ["barfing", "high_temperature", "uncontrollable_drooling"],
         name: "Swamp Mouth",
-        cure: ["Essence of Placebo at Treatment Table", "Tum Tum Readjustment Surgery"],
+        cure: ["Essence of Placebo at Treatment Table", "Tum Tum Tickletangle Readjustment Surgery"],
     },
     winterfest_fever: {
         diff: "Easy",
@@ -162,7 +162,7 @@ vetAilments = {
         diff: "Medium",
         symptoms: ["golden_poop", "watery_eyes", "overly_moist_skin", "rapid_heartbeat"],
         name: "Gilded Guts Disorder",
-        cure: ["Essence of Placebo at Exam Table", "Tum Tum Readjustment Surgery"],
+        cure: ["Essence of Placebo at Exam Table", "Tum Tum Tickletangle Readjustment Surgery"],
     },
     magmafied_organs: {
         diff: "Medium",
@@ -186,7 +186,7 @@ vetAilments = {
         diff: "Medium",
         symptoms: ["stinky_fur", "fleas", "mouth_moths", "uncontrollable_drooling"],
         name: "Repugnitis",
-        cure: ["Organic Disinfectant Spray at Treatment Table", "Tum Tum Readjustment Surgery"],
+        cure: ["Organic Disinfectant Spray at Treatment Table", "Tum Tum Tickletangle Readjustment Surgery"],
     },
     sizzlepaw: {
         diff: "Medium",
@@ -194,10 +194,10 @@ vetAilments = {
         name: "Sizzlepaw",
         cure: ["Fixitol Treat at Exam Table", "Unblock Chute Surgery"],
     },
-    squirrel_fever: {
+    squirrel_scratch_fever: {
         diff: "Medium",
         symptoms: ["uncontrollable_drooling", "extreme _lethargy", "sluggish_heartbeat", "ear_infection"],
-        name: "Squirrel Fever",
+        name: "Squirrel Scratch Fever",
         cure: ["Feelgood Serum at Exam Table", "Extract Cuteness Surgery"],
     },
     critical_hotfoot: {
@@ -222,7 +222,7 @@ vetAilments = {
         diff: "Hard",
         symptoms: ["icy_fur", "low_temperature", "sweet_breath", "overly_moist_skin", "dry_eyes"],
         name: "Slurry Fur",
-        cure: ["Tum Tum Readjustment Surgery"],
+        cure: ["Tum Tum Tickletangle Readjustment Surgery"],
     },
     shortnose_fever: {
         diff: "Hard",
@@ -234,9 +234,9 @@ vetAilments = {
         diff: "Hard",
         symptoms: ["barfing", "fleas", "mouth_moths", "stinky_fur", "uncontrollable_drooling"],
         name: "Super Repugnitis",
-        cure: ["Tum Tum Readjustment Surgery"]
+        cure: ["Tum Tum Tickletangle Readjustment Surgery"]
     },
-    super_swamp_mouth: {
+    super_duper_swamp_mouth: {
         diff: "Hard",
         symptoms: [
             "barfing",
@@ -245,14 +245,20 @@ vetAilments = {
             "overly_moist_skin",
             "unstable_temperature",
         ],
-        name: "Super Swamp Mouth",
-        cure: ["Tum Tum Readjustment Surgery"]
+        name: "Super-Duper Swamp Mouth",
+        cure: ["Tum Tum Tickletangle Readjustment Surgery"]
     },
     throbpaw_disease: {
         diff: "Hard",
         symptoms: ["hot_feet", "dry_eyes", "high_temperature", "sour_breath", "ear_infection"],
         name: "Throbpaw Disease",
         cure: ["Feelgood Serum at Exam Table", "Refill Nose Surgery"]
+    },
+    nuclear_nose: {
+        diff: "Hard",
+        symptoms: ["glowing_nose", "raspy_breathing", "rainbow_poop", "sweet_breath", "ear_infection"],
+        name: "Nuclear Nose",
+        cure: ["Eudemonia Concentrate at Exam Table"]
     },
 };
 
