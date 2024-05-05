@@ -16,46 +16,46 @@
  * List of possible ailments listed in the order of how often they tend to occur
  */
 let docAilments = {
-    starry_eyes: {
-        symptoms: ["dizziness", "swirl_rash", "swatting"],
-        name: "Starry Eyes",
-        cure: "N/A"
-    },
     bloaty_head: {
         symptoms: ["head_steam", "headache", "spot_rash"],
         name: "Bloaty Head",
-        cure: "N/A"
+        cure: ["N/A"],
+    },
+    starry_eyes: {
+        symptoms: ["dizziness", "swirl_rash", "swatting"],
+        name: "Starry Eyes",
+        cure: ["N/A"],
     },
     gas_and_giggles: {
         symptoms: ["stomach_ache", "giggling", "stripes_rash"],
         name: "Gas-and-Giggles",
-        cure: "N/A"
+        cure: ["N/A"],
     },
     llama_flu: {
         symptoms: ["spot_rash", "sneeze", "cough", "fever", "giggling"],
         name: "Llama Flu",
-        cure: "N/A"
+        cure: ["N/A"],
     },
     sweaty_shivers: {
         symptoms: ["spot_rash", "itchiness", "fever"],
         name: "Sweaty Shivers",
-        cure: "N/A"
+        cure: ["N/A"],
     },
     itchy_plumbob: {
         symptoms: ["itchiness", "giggling", "stripes_rash", "spot_rash"],
         name: "Itchy Plumbob",
-        cure: "N/A"
+        cure: ["N/A"],
     },
     burnin_belly: {
         symptoms: ["stomach_ache", "fever"],
         name: "Burnin' Belly",
-        cure: "N/A"
+        cure: ["N/A"],
     },
     // pass_gas symptom added (cheek lift and waves hand in front of face)
     triple_threat: {
         symptoms: ["dizziness", "sneeze", "itchiness", "cough", "stripes_rash", "spot_rash", "swirl_rash"],
         name: "Triple Threat",
-        cure: "N/A"
+        cure: ["N/A"],
     },
 };
 
@@ -83,13 +83,13 @@ vetAilments = {
         diff: "Easy",
         symptoms: ["fleas"],
         name: "Fleas!",
-        cure: ["Parasite Killer Spray at Exam Table", "Unblock Chute Surgery"],
+        cure: ["Parasite Killer Spray at Exam Table", "Unblock Kibble Chute Blockage"],
     },
     icy_fur: {
         diff: "Easy",
         symptoms: ["icy_fur", "low_temperature", "overly_moist_skin"],
         name: "icy_fur",
-        cure: ["Parasite Killer Spray at Exam Table", "Unblock Chute Surgery"],
+        cure: ["Parasite Killer Spray at Exam Table", "Unblock Kibble Chute Blockage"],
     },
     lava_nose: {
         diff: "Easy",
@@ -101,13 +101,13 @@ vetAilments = {
         diff: "Easy",
         symptoms: ["mouth_moths", "uncontrollable_drooling", "stinky_fur"],
         name: "Mild Repugnitis",
-        cure: ["Parasite Killer Spray at Exam Table", "Unblock Chute Surgery"],
+        cure: ["Parasite Killer Spray at Exam Table", "Unblock Kibble Chute Blockage"],
     },
     prismatic_poop_plague: {
         diff: "Easy",
         symptoms: ["rainbow_poop", "rapid_heartbeat", "sweet_breath"],
         name: "Prismatic Poop Plague",
-        cure: ["MedicineX Pill at Exam Table", "Unblock Chute Surgery"],
+        cure: ["MedicineX Pill at Exam Table", "Unblock Kibble Chute Blockage"],
     },
     swamp_mouth: {
         diff: "Easy",
@@ -119,7 +119,7 @@ vetAilments = {
         diff: "Easy",
         symptoms: ["glowing_nose", "icy_fur", "low_temperature"],
         name: "Winterfest Fever",
-        cure: ["Fixitol Treat at Exam Table", "Unblock Chute Surgery"],
+        cure: ["Fixitol Treat at Exam Table", "Unblock Kibble Chute Blockage"],
     },
     // Same symptoms but dog or cat cure
     derpy_doggy: {
@@ -137,7 +137,7 @@ vetAilments = {
     advanced_lavanose: {
         diff: "Medium",
         symptoms: ["glowing_nose", "rainbow_poop", "raspy_breath", "sweet_breath"],
-        name: "Advanced Lavanose",
+        name: "Advanced Lava Nose",
         cure: ["Fixitol Treat at Exam Table", "Refill Nose Surgery"],
     },
     advanced_swampmouth: {
@@ -192,7 +192,7 @@ vetAilments = {
         diff: "Medium",
         symptoms: ["hot_feet", "dry_eyes", "high_temperature", "raspy_breath"],
         name: "Sizzlepaw",
-        cure: ["Fixitol Treat at Exam Table", "Unblock Chute Surgery"],
+        cure: ["Fixitol Treat at Exam Table", "Unblock Kibble Chute Blockage"],
     },
     squirrel_scratch_fever: {
         diff: "Medium",
@@ -203,13 +203,13 @@ vetAilments = {
     critical_hotfoot: {
         diff: "Hard",
         symptoms: ["hot_feet", "dry_eyes", "high_temperature", "raspy_breath", "dry_skin"],
-        name: "Critical Hotfoot",
+        name: "Critical Hotfoot or Severe Hotfoot",
         cure: ["Antiviral Payload at Exam Table", "Lubricate Joint Surgery"],
     },
     critical_lavanose: {
         diff: "Hard",
         symptoms: ["glowing_nose", "rainbow_poop", "raspy_breath", "sweet_breath", "ear_infection"],
-        name: "Critical Lavanose",
+        name: "Critical Lava Nose",
         cure: ["Eudemonia Concentrate at Exam Table", "Refill Nose Surgery"],
     },
     tundra_hide: {
@@ -228,13 +228,19 @@ vetAilments = {
         diff: "Hard",
         symptoms: ["glowing_nose", "rainbow_poop", "raspy_breath", "sour_breath", "dry_eyes"],
         name: "Shortnose Fever",
-        cure: ["Unblock Chute Surgery"],
+        cure: ["Unblock Kibble Chute Blockage"],
     },
     super_repugnitis: {
         diff: "Hard",
         symptoms: ["barfing", "fleas", "mouth_moths", "stinky_fur", "uncontrollable_drooling"],
         name: "Super Repugnitis",
-        cure: ["Tum Tum Tickletangle Readjustment Surgery"]
+        cure: ["Tum Tum Tickletangle Readjustment Surgery"],
+    },
+    snortnose_fever: {
+        diff: "Hard",
+        symptoms: ["glowing_nose", "raspy_breath", "rainbow_poop", "sour_breath", "dry_eyes"],
+        name: "Snortnose Fever",
+        cure: ["Unblock Kibble Chute Blockage"],
     },
     super_duper_swamp_mouth: {
         diff: "Hard",
@@ -246,30 +252,29 @@ vetAilments = {
             "unstable_temperature",
         ],
         name: "Super-Duper Swamp Mouth",
-        cure: ["Tum Tum Tickletangle Readjustment Surgery"]
+        cure: ["Tum Tum Tickletangle Readjustment Surgery"],
     },
     throbpaw_disease: {
         diff: "Hard",
         symptoms: ["hot_feet", "dry_eyes", "high_temperature", "sour_breath", "ear_infection"],
         name: "Throbpaw Disease",
-        cure: ["Feelgood Serum at Exam Table", "Refill Nose Surgery"]
+        cure: ["Feelgood Serum at Exam Table", "Refill Nose Surgery"],
     },
     nuclear_nose: {
         diff: "Hard",
         symptoms: ["glowing_nose", "raspy_breathing", "rainbow_poop", "sweet_breath", "ear_infection"],
         name: "Nuclear Nose",
-        cure: ["Eudemonia Concentrate at Exam Table"]
+        cure: ["Eudemonia Concentrate at Exam Table"],
     },
 };
 
 let vetSymptomRelateds = {
     // future list to add green font color to related symptoms
-}
+};
 
 // combine the two ailment types into one list since
 // the ailments are completely different
 let allAilments = { ...docAilments, ...vetAilments };
-
 
 // For the "New Patient" button onclick, clears all checks
 let symptomsClearAll = function () {
@@ -284,10 +289,10 @@ let symptomsClearAll = function () {
 };
 
 // for reset
-let enableBothSides = function() {
+let enableBothSides = function () {
     $("#vet_symptom_list").removeClass("dimmer");
     $("#doc_symptom_list").removeClass("dimmer");
-}
+};
 
 // gets the type of symptom from the class name (docs or vets) and sets the other side disabled
 let disableOtherSide = function (clickedElement) {
@@ -299,6 +304,18 @@ let disableOtherSide = function (clickedElement) {
     }
 };
 
+// let vetSyms = $(".symptom.vets");
+// let vetSymsArray = [];
+// console.log(vetSyms[0].id);
+
+// $(".symptom.vets").each(function (index) {
+//     vetSymsArray.push(this.id);
+//     //console.log(index + ": " + this.id);
+// });
+
+// vetSymsArray.sort();
+// console.log(vetSymsArray)
+
 /*
  * Attach a change event listener to the check boxes so that the diagnosis list will update when one is clicked
  */
@@ -307,14 +324,14 @@ $(".symptom").change(function (clickedElement) {
     let possibles = [];
 
     // check whether we have any symptoms selected atm
-    if($("input[name='symptoms']:checked").length === 0) {
+    if ($("input[name='symptoms']:checked").length === 0) {
         // no checks so reset as new
         enableBothSides();
         // clear the list but it's reset on entry so not needed
         symptoms = [];
     } else {
         enableBothSides();
-        if(clickedElement) {
+        if (clickedElement) {
             disableOtherSide(clickedElement);
         }
     }
@@ -348,10 +365,18 @@ $(".symptom").change(function (clickedElement) {
     if (symptoms.length > 0) {
         for (var ailment in allAilments) {
             if (allIn(symptoms, allAilments[ailment].symptoms)) {
-                console.log(allAilments[ailment].cure.toString());
-                let ailmentInfo = "<span class='possibleAilmentName'>" + allAilments[ailment].name + "</span><br>"
-                + "<span class='possibleSymptomsList'>Related Symptoms: " + allAilments[ailment].symptoms.join(', ') + "</span>"
-                + "<br>" + "<span class='possibleCureList'>Related Cure: " +  allAilments[ailment].cure.join(', ') + "</span><br>"
+                //console.log(allAilments[ailment].cure.toString());
+                let ailmentInfo =
+                    "<span class='possibleAilmentName'>" +
+                    allAilments[ailment].name +
+                    "</span><br>" +
+                    "<span class='possibleSymptomsList'>Related Symptoms: " +
+                    allAilments[ailment].symptoms.join(", ") +
+                    "</span>" +
+                    "<br>" +
+                    "<span class='possibleCureList'>Related Cure: " +
+                    allAilments[ailment].cure.join(", ") +
+                    "</span><br>";
                 possibles.push(ailmentInfo);
             }
         }
